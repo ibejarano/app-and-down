@@ -1,4 +1,4 @@
-import { Exercise, Body } from "../types";
+import { Exercise, Body, ProgrammedExercise, Routine } from "../types";
 
 const mock_exercises: Exercise[] = [
   {
@@ -33,4 +33,27 @@ const mock_exercises: Exercise[] = [
   },
 ];
 
-export { mock_exercises };
+const mock_routine: Routine = {
+  id: 1,
+  name: "Probando mi amor por ti",
+  exercises: [
+    {
+      id: 1,
+      exercise: mock_exercises[0],
+      sets: 3,
+      reps: 10,
+      weight: 110,
+      restTime: 180,
+    },
+    {
+      id: 2,
+      exercise: mock_exercises[3],
+      sets: 5,
+      reps: 12,
+      weight: 60,
+      restTime: 240,
+    },
+  ],
+};
+
+export { mock_exercises, mock_routine };

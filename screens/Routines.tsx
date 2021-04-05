@@ -1,7 +1,9 @@
 import * as React from "react";
 import { StyleSheet } from "react-native";
 
+import RoutineCard from "../components/RoutineCard";
 import { Text, View } from "../components/Themed";
+import { mock_routine } from "../constants/MockData";
 
 export default function TabOneScreen() {
   return (
@@ -12,6 +14,7 @@ export default function TabOneScreen() {
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
+      <RoutineCard {...mock_routine} />
     </View>
   );
 }

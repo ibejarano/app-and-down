@@ -7,20 +7,34 @@ import { Text, View } from "../../components/Themed";
 interface Props extends Exercise {
   reps?: number;
   sets?: number;
+  weight?: number;
   restTime?: number;
 }
 
-const ExerciseCard: React.FC<Props> = ({ name, body_train }) => {
+const ExerciseCard: React.FC<Props> = ({
+  name,
+  body_train,
+  reps,
+  sets,
+  weight,
+  restTime,
+}) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{name}</Text>
-      <View style={styles.subcontainer}>
-        {body_train.map((body, idx) => (
-          <Text style={styles.bodyText} key={idx}>
-            {body}
-          </Text>
-        ))}
-      </View>
+      {sets ? (
+        <Text style={styles.bodyText}>
+          {reps}x{sets} @{weight}Kg
+        </Text>
+      ) : (
+        <View style={styles.subcontainer}>
+          {body_train.map((body, idx) => (
+            <Text style={styles.bodyText} key={idx}>
+              {body}
+            </Text>
+          ))}
+        </View>
+      )}
     </View>
   );
 };
@@ -46,7 +60,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   bodyText: {
-    fontSize: 12,
+    fontSize: 14,
     marginRight: 8,
     paddingHorizontal: 8,
     paddingVertical: 4,
