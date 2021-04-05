@@ -1,13 +1,13 @@
-import { Ionicons } from '@expo/vector-icons';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { createStackNavigator } from '@react-navigation/stack';
-import * as React from 'react';
+import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createStackNavigator } from "@react-navigation/stack";
+import * as React from "react";
 
-import Colors from '../constants/Colors';
-import useColorScheme from '../hooks/useColorScheme';
-import Routines from '../screens/Routines';
-import Exercises from '../screens/Exercises';
-import { BottomTabParamList, TabOneParamList, TabTwoParamList } from '../types';
+import Colors from "../constants/Colors";
+import useColorScheme from "../hooks/useColorScheme";
+import Routines from "../screens/Routines";
+import Exercises from "../screens/Exercises";
+import { BottomTabParamList, TabOneParamList, TabTwoParamList } from "../types";
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>();
 
@@ -17,42 +17,46 @@ export default function BottomTabNavigator() {
   return (
     <BottomTab.Navigator
       initialRouteName="Routines"
-      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}>
+      tabBarOptions={{ activeTintColor: Colors[colorScheme].tint }}
+    >
       <BottomTab.Screen
         name="Routines"
-        component={TabOneNavigator}
+        component={TabRoutineNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <AntDesign name="profile" size={24} color={color} />
+          ),
         }}
       />
+
       <BottomTab.Screen
         name="Exercises"
-        component={TabTwoNavigator}
+        component={TabExerciseNavigator}
         options={{
-          tabBarIcon: ({ color }) => <TabBarIcon name="ios-code" color={color} />,
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons
+              name="weight-lifter"
+              size={24}
+              color={color}
+            />
+          ),
         }}
       />
     </BottomTab.Navigator>
   );
 }
 
-// You can explore the built-in icon families and icons on the web at:
-// https://icons.expo.fyi/
-function TabBarIcon(props: { name: React.ComponentProps<typeof Ionicons>['name']; color: string }) {
-  return <Ionicons size={30} style={{ marginBottom: -3 }} {...props} />;
-}
-
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const TabOneStack = createStackNavigator<TabOneParamList>();
 
-function TabOneNavigator() {
+function TabRoutineNavigator() {
   return (
     <TabOneStack.Navigator>
       <TabOneStack.Screen
         name="Routines"
         component={Routines}
-        options={{ headerTitle: 'Routines' }}
+        options={{ headerTitle: "Routines" }}
       />
     </TabOneStack.Navigator>
   );
@@ -60,13 +64,13 @@ function TabOneNavigator() {
 
 const TabTwoStack = createStackNavigator<TabTwoParamList>();
 
-function TabTwoNavigator() {
+function TabExerciseNavigator() {
   return (
     <TabTwoStack.Navigator>
       <TabTwoStack.Screen
         name="Exercises"
         component={Exercises}
-        options={{ headerTitle: 'Exercises' }}
+        options={{ headerTitle: "Exercises" }}
       />
     </TabTwoStack.Navigator>
   );

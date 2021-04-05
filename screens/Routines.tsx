@@ -1,20 +1,36 @@
 import * as React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, Button } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 
 import RoutineCard from "../components/RoutineCard";
-import { Text, View } from "../components/Themed";
+import { View, Text } from "../components/Themed";
 import { mock_routine } from "../constants/MockData";
 
-export default function TabOneScreen() {
+function DetailScreenExercise() {
+  return (
+    <View>
+      <Text>Aca el ejercicio!</Text>
+    </View>
+  );
+}
+
+export default function RoutinesScreen() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Rutinas</Text>
+      <Button
+        title="Go to Details"
+        onPress={() => navigation.navigate("Details")}
+      />
+      <RoutineCard {...mock_routine} />
+
       <View
         style={styles.separator}
         lightColor="#eee"
         darkColor="rgba(255,255,255,0.1)"
       />
-      <RoutineCard {...mock_routine} />
     </View>
   );
 }
@@ -24,10 +40,6 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: "bold",
   },
   separator: {
     marginVertical: 30,
