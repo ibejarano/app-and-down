@@ -15,3 +15,17 @@ export type TabOneParamList = {
 export type TabTwoParamList = {
   Exercises: undefined;
 };
+
+export enum Body {
+  CHEST= "CHEST",
+  BICEPS = "BICEPS",
+  TRICEPS = "TRICEPS",
+  FRONTLEG = "FRONTLEG",
+  BACKLEG = "BACKLEG",
+  SHOULDERS = "SHOULDERS",
+  BACK = "BACK"
+}
+export interface Exercise {
+  name: string,
+  body_train: Body[]
+}
