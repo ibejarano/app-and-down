@@ -8,7 +8,6 @@ import { mock_exercises } from "../constants/MockData";
 export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Exercises</Text>
       <View
         style={styles.separator}
         lightColor="#eee"

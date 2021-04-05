@@ -17,6 +17,10 @@ const mock_exercises: Exercise[] = [
     name: "Deadlift",
     body_train: [Body.BACKLEG],
   },
+  {
+    name: "Barbell Row",
+    body_train: [Body.CHEST, Body.BACK],
+  },
 ];
 
 export { mock_exercises };
