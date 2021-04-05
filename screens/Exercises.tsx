@@ -8,11 +8,6 @@ import { mock_exercises } from "../constants/MockData";
 export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
       {mock_exercises.map((data, idx) => (
         <ExerciseCard key={idx} {...data} />
       ))}

@@ -17,15 +17,16 @@ export type TabTwoParamList = {
 };
 
 export enum Body {
-  CHEST= "CHEST",
+  CHEST = "CHEST",
   BICEPS = "BICEPS",
   TRICEPS = "TRICEPS",
   FRONTLEG = "FRONTLEG",
   BACKLEG = "BACKLEG",
   SHOULDERS = "SHOULDERS",
-  BACK = "BACK"
+  BACK = "BACK",
 }
 export interface Exercise {
-  name: string,
-  body_train: Body[]
+  id: number;
+  name: string;
+  body_train: Body[];
 }
