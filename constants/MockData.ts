@@ -1,4 +1,4 @@
-import { Exercise, Body, ProgrammedExercise, Routine } from "../types";
+import { Exercise, Body, Routine } from "../types";
 
 const mock_exercises: Exercise[] = [
   {
@@ -33,27 +33,59 @@ const mock_exercises: Exercise[] = [
   },
 ];
 
-const mock_routine: Routine = {
-  id: 1,
-  name: "Probando mi amor por ti",
-  exercises: [
-    {
-      id: 1,
-      exercise: mock_exercises[0],
-      sets: 3,
-      reps: 10,
-      weight: 110,
-      restTime: 180,
-    },
-    {
-      id: 2,
-      exercise: mock_exercises[3],
-      sets: 5,
-      reps: 12,
-      weight: 60,
-      restTime: 240,
-    },
-  ],
-};
+const mock_routines: Routine[] = [
+  {
+    id: 1,
+    name: "Rutina Lunes - Peso",
+    exercises: [
+      {
+        id: 1,
+        exercise: mock_exercises[0],
+        sets: 3,
+        reps: 10,
+        weight: 120,
+        restTime: 180,
+      },
+      {
+        id: 2,
+        exercise: mock_exercises[3],
+        sets: 5,
+        reps: 12,
+        weight: 60,
+        restTime: 240,
+      },
+    ],
+  },
+  {
+    id: 1,
+    name: "Rutina Miercoles - Volumen",
+    exercises: [
+      {
+        id: 1,
+        exercise: mock_exercises[1],
+        sets: 3,
+        reps: 10,
+        weight: 120,
+        restTime: 180,
+      },
+      {
+        id: 2,
+        exercise: mock_exercises[2],
+        sets: 5,
+        reps: 12,
+        weight: 60,
+        restTime: 240,
+      },
+      {
+        id: 3,
+        exercise: mock_exercises[4],
+        sets: 5,
+        reps: 12,
+        weight: 60,
+        restTime: 240,
+      },
+    ],
+  },
+];
 
-export { mock_exercises, mock_routine };
+export { mock_exercises, mock_routines };

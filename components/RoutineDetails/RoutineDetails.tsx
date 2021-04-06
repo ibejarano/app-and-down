@@ -5,7 +5,8 @@ import { Routine as Props } from "../../types";
 import ExerciseCard from "../ExerciseCard";
 import { Text, View } from "../../components/Themed";
 
-const RoutineCard: React.FC<Props> = ({ name, exercises }) => {
+const RoutineCard: React.FC<Props> = ({ route, navigation }) => {
+  const { name, exercises } = route.params;
   let totalVolume: number = 0;
   let totalTime: number = 0;
   exercises.forEach(({ weight, sets, reps, restTime }) => {
@@ -16,15 +17,11 @@ const RoutineCard: React.FC<Props> = ({ name, exercises }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{name}</Text>
-      {/* {exercises.map(({ id, exercise, sets, reps, weight, restTime }) => (
+      {exercises.map(({ id, exercise, sets, reps, weight, restTime }) => (
         <View key={id} style={styles.programmedContainer}>
           <ExerciseCard {...exercise} reps={reps} sets={sets} weight={weight} />
         </View>
-      ))} */}
-      <View style={styles.infoContainer}>
-        <Text>Total volume: {totalVolume}</Text>
-        <Text>Estimated time: {totalTime / 60} mins</Text>
-      </View>
+      ))}
     </View>
   );
 };
@@ -45,12 +42,6 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginBottom: 8,
-  },
-  infoContainer: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "space-around",
-    marginVertical: 8,
   },
 });
 

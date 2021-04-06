@@ -1,45 +1,52 @@
 import * as React from "react";
-import { StyleSheet, Button } from "react-native";
-import { useNavigation } from "@react-navigation/native";
+import { StyleSheet, TouchableOpacity } from "react-native";
+
 import { createStackNavigator } from "@react-navigation/stack";
 
 import RoutineCard from "../components/RoutineCard";
-import { View, Text } from "../components/Themed";
-import { mock_routine } from "../constants/MockData";
+import RoutineDetails from "../components/RoutineDetails";
+import { View, Text, Button } from "../components/Themed";
+import { mock_routines } from "../constants/MockData";
 
-function DetailScreenExercise() {
+function RoutineCardPress({ navigation, extraData }) {
   return (
-    <View>
-      <Text>Aca el ejercicio!</Text>
-    </View>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={() =>
+        navigation.navigate("Routine Details", {
+          ...extraData,
+        })
+      }
+    >
+      <RoutineCard {...extraData} />
+    </TouchableOpacity>
   );
 }
 
+const Stack = createStackNavigator();
+
 export default function RoutinesScreen() {
-  const navigation = useNavigation();
-
   return (
-    <View style={styles.container}>
-      <Button
-        title="Go to Details"
-        onPress={() => navigation.navigate("Details")}
-      />
-      <RoutineCard {...mock_routine} />
-
-      <View
-        style={styles.separator}
-        lightColor="#eee"
-        darkColor="rgba(255,255,255,0.1)"
-      />
-    </View>
+    <Stack.Navigator>
+      <Stack.Screen name="Home">
+        {(props) => (
+          <>
+            {mock_routines.map((routine) => (
+              <RoutineCardPress {...props} extraData={routine} />
+            ))}
+          </>
+        )}
+      </Stack.Screen>
+      <Stack.Screen name="Routine Details" component={RoutineDetails} />
+    </Stack.Navigator>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: "center",
     justifyContent: "center",
+    marginVertical: 8,
   },
   separator: {
     marginVertical: 30,
