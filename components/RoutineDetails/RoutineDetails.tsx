@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet } from "react-native";
+import { StyleSheet, TouchableOpacity } from "react-native";
 
 import { Routine as Props } from "../../types";
 import ExerciseCard from "../ExerciseCard";
@@ -7,6 +7,7 @@ import { Text, View } from "../../components/Themed";
 
 const RoutineCard: React.FC<Props> = ({ route, navigation }) => {
   const { name, exercises } = route.params;
+  console.log(navigation);
   let totalVolume: number = 0;
   let totalTime: number = 0;
   exercises.forEach(({ weight, sets, reps, restTime }) => {
@@ -18,9 +19,21 @@ const RoutineCard: React.FC<Props> = ({ route, navigation }) => {
     <View style={styles.container}>
       <Text style={styles.title}>{name}</Text>
       {exercises.map(({ id, exercise, sets, reps, weight, restTime }) => (
-        <View key={id} style={styles.programmedContainer}>
+        <TouchableOpacity
+          key={id}
+          style={styles.programmedContainer}
+          onPress={() =>
+            navigation.navigate("ExerciseDetails", {
+              exercise,
+              sets,
+              reps,
+              weight,
+              restTime,
+            })
+          }
+        >
           <ExerciseCard {...exercise} reps={reps} sets={sets} weight={weight} />
-        </View>
+        </TouchableOpacity>
       ))}
     </View>
   );

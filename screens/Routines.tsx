@@ -5,6 +5,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 
 import RoutineCard from "../components/RoutineCard";
 import RoutineDetails from "../components/RoutineDetails";
+import ExerciseDetails from './ExerciseDetails'
 import { View, Text, Button } from "../components/Themed";
 import { mock_routines } from "../constants/MockData";
 
@@ -13,7 +14,7 @@ function RoutineCardPress({ navigation, extraData }) {
     <TouchableOpacity
       style={styles.container}
       onPress={() =>
-        navigation.navigate("Routine Details", {
+        navigation.navigate("RoutineDetails", {
           ...extraData,
         })
       }
@@ -37,7 +38,8 @@ export default function RoutinesScreen() {
           </>
         )}
       </Stack.Screen>
-      <Stack.Screen name="Routine Details" component={RoutineDetails} />
+      <Stack.Screen name="RoutineDetails" component={RoutineDetails} />
+      <Stack.Screen name="ExerciseDetails" component={ExerciseDetails} />
     </Stack.Navigator>
   );
 }
