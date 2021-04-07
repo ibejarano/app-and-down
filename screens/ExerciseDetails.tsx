@@ -2,15 +2,21 @@ import * as React from "react";
 import { StyleSheet } from "react-native";
 
 import { Text, View } from "../components/Themed";
-import ExerciseCard from "../components/ExerciseCard";
-import { mock_exercises } from "../constants/MockData";
 
 export default function ExerciseDetails({ navigation, route }) {
-  const { exercise, sets, reps, weight, restTime } = route.params;
+  const { exercise, sets } = route.params;
   return (
     <View style={styles.container}>
       <Text>{exercise.name}</Text>
-      <Text>{weight} kg</Text>
+      <View>
+        {sets.map(({ reps, weight, restTime }) => (
+          <View>
+            <Text>{reps}</Text>
+            <Text>{weight}</Text>
+            <Text>{restTime}</Text>
+          </View>
+        ))}
+      </View>
     </View>
   );
 }

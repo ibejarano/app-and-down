@@ -41,18 +41,44 @@ const mock_routines: Routine[] = [
       {
         id: 1,
         exercise: mock_exercises[0],
-        sets: 3,
-        reps: 10,
-        weight: 120,
-        restTime: 180,
+        sets: [
+          {
+            reps: 16,
+            weight: 40,
+            restTime: 120,
+          },
+          {
+            reps: 9,
+            weight: 80,
+            restTime: 180,
+          },
+          {
+            reps: 9,
+            weight: 80,
+            restTime: 180,
+          },
+        ],
       },
       {
         id: 2,
         exercise: mock_exercises[3],
-        sets: 5,
-        reps: 12,
-        weight: 60,
-        restTime: 240,
+        sets: [
+          {
+            reps: 16,
+            weight: 40,
+            restTime: 120,
+          },
+          {
+            reps: 9,
+            weight: 80,
+            restTime: 180,
+          },
+          {
+            reps: 9,
+            weight: 80,
+            restTime: 180,
+          },
+        ],
       },
     ],
   },
@@ -63,26 +89,65 @@ const mock_routines: Routine[] = [
       {
         id: 1,
         exercise: mock_exercises[1],
-        sets: 3,
-        reps: 10,
-        weight: 120,
-        restTime: 180,
+        sets: [
+          {
+            reps: 16,
+            weight: 40,
+            restTime: 120,
+          },
+          {
+            reps: 9,
+            weight: 80,
+            restTime: 180,
+          },
+          {
+            reps: 9,
+            weight: 80,
+            restTime: 180,
+          },
+        ],
       },
       {
         id: 2,
         exercise: mock_exercises[2],
-        sets: 5,
-        reps: 12,
-        weight: 60,
-        restTime: 240,
+        sets: [
+          {
+            reps: 16,
+            weight: 40,
+            restTime: 120,
+          },
+          {
+            reps: 9,
+            weight: 80,
+            restTime: 180,
+          },
+          {
+            reps: 9,
+            weight: 80,
+            restTime: 180,
+          },
+        ],
       },
       {
         id: 3,
         exercise: mock_exercises[4],
-        sets: 5,
-        reps: 12,
-        weight: 60,
-        restTime: 240,
+        sets: [
+          {
+            reps: 10,
+            weight: 60,
+            restTime: 120,
+          },
+          {
+            reps: 5,
+            weight: 80,
+            restTime: 180,
+          },
+          {
+            reps: 5,
+            weight: 80,
+            restTime: 180,
+          },
+        ],
       },
     ],
   },

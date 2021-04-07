@@ -11,22 +11,11 @@ interface Props extends Exercise {
   restTime?: number;
 }
 
-const ExerciseCard: React.FC<Props> = ({
-  name,
-  body_train,
-  reps,
-  sets,
-  weight,
-  restTime,
-}) => {
+const ExerciseCard: React.FC<Props> = ({ name, body_train }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{name}</Text>
-      {sets ? (
-        <Text style={styles.bodyText}>
-          {reps}x{sets} @{weight}Kg
-        </Text>
-      ) : (
+      {body_train && (
         <View style={styles.subcontainer}>
           {body_train.map((body, idx) => (
             <Text style={styles.bodyText} key={idx}>

@@ -32,13 +32,16 @@ export interface Exercise {
   body_train: Body[];
 }
 
+export interface Set {
+  reps: number;
+  restTime: number;
+  weight: number;
+}
+
 export interface ProgrammedExercise {
   id: number;
   exercise: Exercise;
-  sets: number;
-  reps: number;
-  weight: number;
-  restTime: number;
+  sets: Set[];
 }
 export interface Routine {
   id: number;
